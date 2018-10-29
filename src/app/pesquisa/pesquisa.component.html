@@ -1,0 +1,27 @@
+<h1>
+  Filmes encontrados com: {{titulo}}
+</h1>
+
+<div class="row">
+
+  <div class="col-md-3" *ngFor="let resultado of list.Search">
+
+    <div class="card">
+      <img class="card-img-top" src="{{resultado.Poster}}" alt="Card image cap">
+      <div class="card-body" >
+        <h5 class="card-title">{{resultado.Title}}</h5>
+        <p class="card-text"><small class="text-muted">{{resultado.Released}}</small></p>
+      </div>
+    </div>
+
+  </div>
+  
+</div>
+
+
+
+
+
+
+<br>
+<a href="javascript:void(0);" routerLink="/api/{{titulo}}">Mais filmes...</a>

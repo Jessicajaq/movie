@@ -2,20 +2,31 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Observable } from 'rxjs';
 import { Movie } from './movie/movie';
+import { Router } from '@angular/router';
+import { PesquisaArray } from './pesquisa/pesquisaarray';
+const URL = 'http://localhost:8080/filme/';
+
 @Injectable({
   providedIn: 'root'
 })
+
 export class MovieService {
-  URL_API = 'http://localhost:8080/filme/';
+
     constructor(public http: HttpClient){}
-   buscarFilme(nome : String):Observable<Movie>{
-        let requisicao = 'previsao?title=';
-        return this.http.get<Movie>(this.URL_API + requisicao + nome);
+
+    getFilmes():Observable<Movie[]>{
+      let requisicao = "buscar";
+      console.log(URL + requisicao);
+       return this.http.get<Movie[]>(URL + requisicao);
+     }
+
+   salvarFilme(nome : string):Observable<Movie>{
+        let requisicao = '/pesquisar?title=';
+        return this.http.get<Movie>(URL + requisicao + nome);
    }
 
-   getFilmes():Observable<Movie[]>{
-    let requisicao = "buscar";
-    console.log(this.URL_API + requisicao);
-     return this.http.get<Movie[]>(this.URL_API + requisicao);
+   id(id : string):Observable<Movie>{
+     let requisicao = 'id?id=' + id;
+     return this.http.get<Movie>(URL + requisicao);
    }
 }

@@ -1,0 +1,18 @@
+  <h1>
+    Filmes encontrados com: {{titulo}}
+  </h1>
+  
+  <div class="row">
+  
+    <div class="col-md-3" *ngFor="let filme of filmes">  
+      <div class="card">
+        <img class="card-img-top" src="{{filme.Poster}}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{filme.Title}}</h5>
+          <p class="card-text"><small class="text-muted">{{filme.Year}}</small></p>
+        </div>
+      </div>
+  
+    </div>
+    
+  </div>

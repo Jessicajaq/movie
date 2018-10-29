@@ -1,4 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="cima">
   <a class="navbar-brand" href="javascript:void(0);">Filmes</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
     aria-expanded="false" aria-label="Toggle navigation">
@@ -7,7 +8,7 @@
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="javascript:void(0);">Início <span class="sr-only">(current)</span></a>
+        <a class="nav-link" routerLink="/home">Início <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="javascript:void(0);" id="navbarDropdownMenuLink" role="button"
@@ -26,14 +27,18 @@
           </a>
         </div>
       </li>
+
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/home">Listagem<span class="sr-only">(current)</span></a>
+      </li>
+
       <li class="nav-item">
         <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-default my-2 my-sm-0" type="submit">Buscar</button>
+          <input  [(ngModel)]="titulo" name="titulo" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-default my-2 my-sm-0" type="button" routerLink="/pesquisa/{{titulo}}" >Buscar</button>
         </form>
       </li>
     </ul>
-
 
     <div class="navbar-text">
       <div class="dropdown dropleft">
@@ -56,7 +61,6 @@
     
   </div>
 </nav>
-
 
 <div class="content-wrapper">
   <div class="container-fluid" style="padding-top: 10px;">
